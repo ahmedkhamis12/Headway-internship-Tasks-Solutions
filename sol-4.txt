@@ -1,0 +1,26 @@
+# Display the current network configuration, including IP address and interfaces
+ifconfig 
+
+# Open the resolv.conf file for editing, where DNS settings are configured
+sudo nano /etc/resolv.conf 
+
+# Add Cloudflare's DNS server (1.1.1.1) to the resolv.conf file for DNS resolution
+nameserver 1.1.1.1 
+
+# Test connectivity to www.google.com 
+ping www.google.com 
+
+# Trace the route taken by packets to reach www.google.com
+traceroute www.google.com 
+
+# Enable the Uncomplicated Firewall (UFW) to start enforcing firewall rules
+sudo ufw enable 
+
+# Allow incoming HTTP traffic (port 80) through the firewall
+sudo ufw allow http 
+
+# Allow incoming HTTPS traffic (port 443) through the firewall
+sudo ufw allow https 
+
+# Allow incoming SSH traffic (port 22) through the firewall
+sudo ufw allow ssh 
