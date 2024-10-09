@@ -1,0 +1,23 @@
+# Install the Nginx web server package
+sudo apt install nginx
+
+# Check the current status of the Nginx service
+sudo systemctl status nginx
+
+# Enable the Nginx service to start on boot
+sudo systemctl enable nginx
+
+# Open the Nginx service unit file for editing
+sudo nano /lib/systemd/system/nginx.service
+
+# Add a command to log the current date and time to startup.log before starting Nginx
+ExecStartPre=/bin/bash -c 'echo "Nginx started at: $(date)" >> /var/log/nginx/startup.log'
+
+# Reload the systemd daemon
+sudo systemctl daemon-reload
+
+# Restart the Nginx service
+sudo systemctl restart nginx
+
+# Check the access log for HTTP requests that returned a 200 OK status
+cat /var/log/nginx/access.log | grep '200 OK'
