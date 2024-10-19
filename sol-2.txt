@@ -1,5 +1,5 @@
 sudo groupadd devops         
-   sudo useradd -m -G devops devops_user 
+sudo useradd -m -G devops devops_user 
 
 sudo passwd devops_user              
 sudo chage -d 0 devops_user    
